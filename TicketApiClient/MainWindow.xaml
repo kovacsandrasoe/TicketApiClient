@@ -1,0 +1,39 @@
+﻿<Window x:Class="TicketApiClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TicketApiClient"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Ticket Client" Height="446.121" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="lbox">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{Binding PictureData}" Height="30" />
+                        <Label Content="{Binding EventName}" />
+                        <Label Content="{Binding Price}" ContentStringFormat=" [{0}]" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="1">
+            <Label Content="Event Name" Background="LightBlue" Margin="10 5 10 5" Padding="5" />
+            <TextBox Margin="10 5 10 5" Padding="5" x:Name="tb_eventname" />
+            <Label Content="Event Date" Background="LightBlue" Margin="10 5 10 5" Padding="5" />
+            <DatePicker Margin="10 5 10 5" Padding="5" x:Name="dp_eventdate" />
+            <Label Content="Ticket Price" Background="LightBlue" Margin="10 5 10 5" Padding="5" />
+            <TextBox Margin="10 5 10 5" Padding="5" x:Name="tb_eventprice" />
+            <Label Content="Picture" Background="LightBlue" Margin="10 5 10 5" Padding="5" />
+            <Button Content="Browse a picture" Margin="38" Padding="5" Click="Button_Click_1" />
+            <Image x:Name="img" Visibility="Collapsed" Height="100" HorizontalAlignment="Center" />
+            <Button Content="Publish Ticket" Margin="10 5 10 5" Padding="5" Background="Green" Foreground="White" FontSize="16" Click="Button_Click" />
+        </StackPanel>
+    </Grid>
+</Window>
